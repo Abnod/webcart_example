@@ -1,44 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Books Store Application</title>
+    <title>Product list - cart example</title>
 </head>
 <body>
-<center>
-    <h1>Books Management</h1>
-    <h2>
-        <a href="/new">Add New Book</a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="/list">List All Books</a>
-
-    </h2>
-</center>
-<div align="center">
-    <table border="1" cellpadding="5">
-        <caption><h2>List of Books</h2></caption>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Price</th>
-            <th>Actions</th>
-        </tr>
-        <c:forEach var="product" items="${products}">
-            <tr>
-                <td>${product.id}</td>
-                <td>${product.title}</td>
-                <td>${product.description}</td>
-                <td>${product.price}</td>
-                <td>
-                    <a href="/edit?id=<c:out value='${book.id}' />">Edit</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="/delete?id=<c:out value='${book.id}' />">Delete</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
+<header>
+    Shoping cart example
+    <a href="cart">Shopping cart</a>
+</header>
+<main>
+    <c:choose>
+        <%--@elvariable id="products" type="java.util.List"--%>
+        <c:when test="${empty products}">
+            <p>There are no any products in shop</p>>
+            <a href="fill">Fill with test products</a>
+        </c:when>
+        <c:otherwise>
+            <table border="1" cellpadding="5">
+                <caption><h2>List of products</h2></caption>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+                <%--@elvariable id="products" type="java.util.List"--%>
+                <c:forEach items="${products}" var="product">
+                    <tr>
+                        <td><c:out value="${product.title}"/></td>
+                        <td><c:out value="${product.description}"/></td>
+                        <td><c:out value="${product.price}"/></td>
+                        <td>
+                            <a href="/add?id=<c:out value='${product.id}' />">add to cart</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:otherwise>
+    </c:choose>
+</main>
+<footer>
+</footer>
 </body>
 </html>

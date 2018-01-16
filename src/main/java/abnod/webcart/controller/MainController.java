@@ -25,6 +25,9 @@ public class MainController extends HttpServlet {
         String prefix = req.getServletPath();
         try{
             switch (prefix){
+                case "/cart":{
+
+                }
                 case "/fill":{
                     fillTestProducts(req, resp);
                     break;
@@ -55,5 +58,10 @@ public class MainController extends HttpServlet {
         dbInterface.fillTestTable();
         req.setAttribute("products", dbInterface.getProducts());
         resp.sendRedirect("/");
+    }
+
+    private void getCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        RequestDispatcher dispatcher = req.getRequestDispatcher("cart.jsp");
+        dispatcher.forward(req, resp);
     }
 }
