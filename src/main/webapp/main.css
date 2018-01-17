@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    text-align: right;
+    padding-top: 15px;
+}
+
+body{
+    background-color: lightgray;
+}
+
+a{
+    text-align: center;
+}
+
+.wrapper{
+    max-width: 900px;
+    min-height: 100%;
+    margin: 0 auto;
+    background-color: oldlace;
+    padding: 0 50px;
+}
+
+.text_header{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.link_button,
+.order_button{
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+table{
+    /*margin: 0 auto;*/
+    width: 100%;
+    background-color: white;
+}
+
+.blue{
+    background-color: dodgerblue;
+}
+
+.red{
+    background-color: crimson;
+}
+
+.green{
+    background-color: limegreen;
+}
+
+.button_column{
+    min-width: 100px;
+    max-width: 100px;
+    width: 100px;
+}
+
+.price_column{
+    min-width: 60px;
+    max-width: 60px;
+    width: 60px;
+}
+
+.title_column{
+    min-width: 50px;
+}
+
+tr{
+    height: 50px;
+}
+
+td{
+    padding: 4px;
+    overflow: hidden;
+}
+
+.centered{
+    text-align: center;
+}
+
+.remove {
+    display: block;
+    width: 100px;
+    margin: 0 0 20px auto;
+}
+
+.centerbutton{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+}

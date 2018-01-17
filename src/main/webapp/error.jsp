@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Error page</title>
+    <link rel="stylesheet" href="<c:url value="${pageContext.request.contextPath}/main.css"/>">
 </head>
 <body>
 <div class="wrapper">

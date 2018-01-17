@@ -3,14 +3,18 @@
 <html>
 <head>
     <title>Order success!</title>
+    <link rel="stylesheet" href="<c:url value="${pageContext.request.contextPath}/main.css"/>">
 </head>
 <body>
     <div class="wrapper">
+        <header>
+            <p class="text_header">Shoping cart example</p>
+            <a href="/" class="link_button blue">back to the shop</a>
+        </header>
         <main>
-            <div>
-                <p class="text_header">Your order accepted</p>
+            <div class="centered">
+                <h2>Your order accepted</h2>
                 <p>Order number: <c:out value="${orderid}"/></p>
-                <a href="/" class="link_button">Back to the shop</a>
             </div>
         </main>
     </div>

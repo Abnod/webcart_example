@@ -13,7 +13,13 @@
 
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern></url-pattern>
+        <url-pattern>/cart</url-pattern>
+        <url-pattern>/add</url-pattern>
+        <url-pattern>/remove</url-pattern>
+        <url-pattern>/order</url-pattern>
+        <url-pattern>/clear</url-pattern>
+        <url-pattern>/fill</url-pattern>
     </servlet-mapping>
 
     <error-page>

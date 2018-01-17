@@ -3,50 +3,54 @@
 <html>
     <head>
         <title>Shopping cart</title>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/main.css">
     </head>
 <body>
     <div class="wrapper">
+        <header>
+            <p class="text_header">Shoping cart example</p>
+            <a href="/" class="link_button blue">back to the shop</a>
+        </header>
         <main>
             <jsp:useBean id="cart" scope="session" class="abnod.webcart.model.Cart"/>
-            <a href="/" class="link_button">back to product list</a>
             <c:choose>
                 <c:when test="${cart.hasProducts}">
-                    <p>Product cart is empty</p>
+                    <h2 class="centered">Product cart is empty</h2>
                 </c:when>
                 <c:otherwise>
                     <table border="1" cellpadding="5">
-                        <caption><p class="text_header">Products in cart</p></caption>
+                        <caption><h2>Products in cart</h2></caption>
                         <tr>
-                            <th>Title</th>
+                            <th class="title_column">Title</th>
                             <th>Description</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Sum</th>
-                            <th></th>
+                            <th class="price_column">Price</th>
+                            <th class="price_column">Quantity</th>
+                            <th class="price_column">Sum</th>
+                            <th class="button_column"></th>
                         </tr>
                             <%--@elvariable id="products" type="java.util.List"--%>
                         <c:forEach items="${cart.cartItems}" var="entry">
                             <tr>
-                                <td><c:out value="${entry.key.title}"/></td>
-                                <td><c:out value="${entry.key.description}"/></td>
-                                <td><c:out value="${entry.key.price}"/></td>
-                                <td><c:out value="${entry.value}"/></td>
-                                <td><c:out value="${entry.value * entry.key.price}"/></td>
-                                <td>
-                                    <a href="/remove?id=<c:out value='${entry.key.id}'/>" class="link_button">remove from cart</a>
+                                <td class="centered"><c:out value="${entry.key.title}"/></td>
+                                <td class="centered"><c:out value="${entry.key.description}"/></td>
+                                <td class="centered"><c:out value="${entry.key.price}"/></td>
+                                <td class="centered"><c:out value="${entry.value}"/></td>
+                                <td class="centered"><c:out value="${entry.value * entry.key.price}"/></td>
+                                <td class="centered">
+                                    <a href="/remove?id=<c:out value='${entry.key.id}'/>" class="link_button red">remove</a>
                                 </td>
                             </tr>
                         </c:forEach>
                     </table>
-                    <a href="/clear" class="link_button">Remove all</a>
+                    <a href="/clear" class="link_button red remove">Remove all</a>
                     <form action="/order" method="post">
-                        <p>Name</p>
+                        <span>Name</span>
                         <input type="text" name="name" required>
-                        <p>Surname</p>
+                        <span>Surname</span>
                         <input type="text" name="surname" required>
-                        <p>Phone number</p>
+                        <span>Phone number</span>
                         <input type="tel" name="phone" required>
-                        <input type="submit" value="Checkout" class="order_button"/>
+                        <input type="submit" value="Checkout" class="link_button green"/>
                     </form>
                 </c:otherwise>
             </c:choose>
