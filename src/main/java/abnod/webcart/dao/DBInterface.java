@@ -1,5 +1,6 @@
 package abnod.webcart.dao;
 
+import abnod.webcart.model.Cart;
 import abnod.webcart.model.Product;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface DBInterface {
     boolean updateProduct(Product product);
 
     void fillTestTable();
+
+    int createOrder(Cart cart, String name, String surname, String phone);
 }
